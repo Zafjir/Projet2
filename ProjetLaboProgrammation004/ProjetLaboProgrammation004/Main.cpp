@@ -4,15 +4,12 @@ void main()
 {
 	Patron patr("Boss");
 	patr.afficher();
-	
-	//int compteurCDP = Patron::returnCompteurCDP();
 
-	ChefDeProjet cdp("PremierCDP",patr);
-	ChefDeProjet cdp1("DeuxiemeCDP", patr);
-	
-	patr.ajouterChefDeProjet(cdp);
-	patr.ajouterChefDeProjet(cdp1);
+	patr.ajouterChefDeProjet( "Allan" );
+	patr.ajouterChefDeProjet( "Thomas" );
+	patr.ajouterChefDeProjet( "Bruno" );
 
-	cdp.afficher();
+	patr.afficherChefDeProjet();
+
 	system("pause");
 }

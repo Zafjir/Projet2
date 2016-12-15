@@ -1,5 +1,7 @@
 #include "Header.h"
 
+int ChefDeProjet::nombreDeChefDeProjet_=0;
+
 /////////////////////////////Constructeur/////////////////////////////
 
 Entreprise::Entreprise(string nom, int numero)
@@ -14,21 +16,18 @@ Patron::Patron(string nom)
 	nom_P = nom;
 }
 
-ChefDeProjet::ChefDeProjet(string nom, Patron &n)
+ChefDeProjet::ChefDeProjet(string nom="valeurpardefaut")
 {
-	cout << "Size : " << n.returnCompteurCDP() << endl;
-	matriculeChefDeProjet = Matricule(n.returnCompteurCDP() +1, "CDP");
+	//cout << "Size : " << nombreDeChefDeProjet_ << endl;
+	matriculeChefDeProjet = Matricule(nombreDeChefDeProjet_ +1, "CDP");
 	nom_C = nom;
+
+	nombreDeChefDeProjet_++;
 }
 
-/*ChefDeProjet::ChefDeProjet(ChefDeProjet &cdp)
-{
-	nom_C = cdp.nom_C;
-	matriculeChefDeProjet = cdp.matriculeChefDeProjet;
-	for (int i = 0; i < (int)cdp.vctProgrammeur.size(); i++) {
-		vctProgrammeur.push_back(cdp.vctProgrammeur[i]);
-	}
-}*/
+
+
+
 
 Programmeur::Programmeur(string nom, int compteurProg)
 {
@@ -53,7 +52,7 @@ int Patron::returnCompteurCDP()
 
 int ChefDeProjet::returnCompteurProg()
 {
-	return vctProgrammeur.size();
+	return nombreDeChefDeProjet_;
 }
 
 /////////////////////////////Afficher/////////////////////////////
@@ -74,9 +73,17 @@ void Patron::afficher()
 	cout << "______________________\n" << endl;
 }
 
+void Patron::afficherChefDeProjet(){
+
+	for ( int i=0; i<vctCDP.size(); i++){
+		vctCDP[i].afficher();
+	}
+
+}
+
 void ChefDeProjet::afficher()
 {
-	cout << "----- Chef de projet -----" << endl;
+	cout << endl << "----- Chef de projet -----" << endl;
 	cout << "Nom : " << nom_C << endl;
 	cout << "Matricule : " << matriculeChefDeProjet.numero_MM << matriculeChefDeProjet.role_MM << endl;
 	cout << "______________________\n" << endl;
@@ -99,7 +106,8 @@ Programmeur::~Programmeur() {}
 
 /////////////////////////////Ajout/////////////////////////////
 
-void Patron::ajouterChefDeProjet(ChefDeProjet &cdp)
+void Patron::ajouterChefDeProjet( string nomDuChefDeProjet )
 {
+	ChefDeProjet cdp( nomDuChefDeProjet );
 	vctCDP.push_back(cdp);
 }

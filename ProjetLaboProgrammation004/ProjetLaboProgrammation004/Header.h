@@ -41,8 +41,9 @@ private :
 public :
 	Patron(string nom);
 	void afficher();
+	void afficherChefDeProjet();
 	int returnCompteurCDP();
-	void ajouterChefDeProjet(ChefDeProjet &cdp);
+	void ajouterChefDeProjet( string nomDuChefDeProjet );
 	~Patron();
 };
 
@@ -52,11 +53,12 @@ private :
 	string nom_C;
 	vector <Programmeur> vctProgrammeur;
 	Matricule matriculeChefDeProjet;
+	static int nombreDeChefDeProjet_;
 public :
-	ChefDeProjet(string nom, Patron &n);
-	ChefDeProjet(ChefDeProjet &cdp);
+	ChefDeProjet(string nom);
 	void afficher();
-	int returnCompteurProg();
+	static int returnCompteurProg();
+	void ajouterProgrammeur( string nomDuProgrammeur );
 	~ChefDeProjet();
 };
 
