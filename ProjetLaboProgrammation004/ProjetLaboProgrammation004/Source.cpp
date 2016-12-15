@@ -1,6 +1,7 @@
 #include "Header.h"
 
-int ChefDeProjet::nombreDeChefDeProjet_=0;
+int ChefDeProjet::nombreDeChefDeProjet_ = 0;
+int Programmeur::nombreDeProgrammeur_ = 0;
 
 /////////////////////////////Constructeur/////////////////////////////
 
@@ -16,6 +17,11 @@ Patron::Patron(string nom)
 	nom_P = nom;
 }
 
+/*ChefDeProjet & Patron::cdp()
+{
+	return vctCDP[0];
+}*/
+
 ChefDeProjet::ChefDeProjet(string nom="valeurpardefaut")
 {
 	//cout << "Size : " << nombreDeChefDeProjet_ << endl;
@@ -25,14 +31,12 @@ ChefDeProjet::ChefDeProjet(string nom="valeurpardefaut")
 	nombreDeChefDeProjet_++;
 }
 
-
-
-
-
-Programmeur::Programmeur(string nom, int compteurProg)
+Programmeur::Programmeur(string nom)
 {
+	matriculeProg = Matricule(nombreDeProgrammeur_ + 1, "Prog");
 	nom_Prog = nom;
-	matriculeProg = Matricule(compteurProg, "Prog");
+
+	nombreDeProgrammeur_++;
 }
 
 Matricule::Matricule(){}
@@ -41,18 +45,6 @@ Matricule::Matricule(int numero, string role)
 {
 	numero_MM = numero;
 	role_MM = role;
-}
-
-/////////////////////////////ReturnCompteur/////////////////////////////
-
-int Patron::returnCompteurCDP()
-{
-	return vctCDP.size();
-}
-
-int ChefDeProjet::returnCompteurProg()
-{
-	return nombreDeChefDeProjet_;
 }
 
 /////////////////////////////Afficher/////////////////////////////
@@ -73,14 +65,6 @@ void Patron::afficher()
 	cout << "______________________\n" << endl;
 }
 
-void Patron::afficherChefDeProjet(){
-
-	for ( int i=0; i<vctCDP.size(); i++){
-		vctCDP[i].afficher();
-	}
-
-}
-
 void ChefDeProjet::afficher()
 {
 	cout << endl << "----- Chef de projet -----" << endl;
@@ -97,6 +81,23 @@ void Programmeur::afficher()
 	cout << "______________________\n" << endl;
 }
 
+void Patron::afficherChefDeProjet()
+{
+	for (int i = 0; i<vctCDP.size(); i++)
+	{
+		vctCDP[i].afficher();
+	}
+}
+
+void ChefDeProjet::afficherProgrammeur()
+{
+	for (int i = 0; i < vctProgrammeur.size(); i++)
+	{
+		cout << "Equipe : " << nom_C << endl;
+		vctProgrammeur[i].afficher();
+	}
+}
+
 /////////////////////////////Afficher/////////////////////////////
 
 Entreprise::~Entreprise() {}
@@ -110,4 +111,10 @@ void Patron::ajouterChefDeProjet( string nomDuChefDeProjet )
 {
 	ChefDeProjet cdp( nomDuChefDeProjet );
 	vctCDP.push_back(cdp);
+}
+
+void ChefDeProjet::ajouterProgrammeur(string nomDuProgrammeur)
+{
+	Programmeur prog(nomDuProgrammeur);
+	vctProgrammeur.push_back(prog);
 }

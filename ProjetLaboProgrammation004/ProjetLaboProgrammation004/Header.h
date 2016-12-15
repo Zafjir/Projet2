@@ -7,6 +7,7 @@
 #include <vector>
 
 using namespace std;
+
 class Entreprise;
 class Patron;
 class ChefDeProjet;
@@ -37,12 +38,12 @@ class Patron
 private :
 	string nom_P;
 	Matricule matriculePatron;
-	vector <ChefDeProjet> vctCDP;
 public :
+	vector <ChefDeProjet> vctCDP;
 	Patron(string nom);
+	//ChefDeProjet &cdp();
 	void afficher();
 	void afficherChefDeProjet();
-	int returnCompteurCDP();
 	void ajouterChefDeProjet( string nomDuChefDeProjet );
 	~Patron();
 };
@@ -51,21 +52,21 @@ class ChefDeProjet
 {
 private :
 	string nom_C;
-	vector <Programmeur> vctProgrammeur;
 	Matricule matriculeChefDeProjet;
 	static int nombreDeChefDeProjet_;
 public :
+	vector <Programmeur> vctProgrammeur;
 	ChefDeProjet(string nom);
 	void afficher();
-	static int returnCompteurProg();
 	void ajouterProgrammeur( string nomDuProgrammeur );
+	void afficherProgrammeur();
 	~ChefDeProjet();
 };
 
 /*class Equipe
 {
 private :
-	string nom_Prog;
+	string nom_;
 };*/
 
 class Programmeur
@@ -73,8 +74,9 @@ class Programmeur
 private :
 	string nom_Prog;
 	Matricule matriculeProg;
+	static int nombreDeProgrammeur_;
 public :
-	Programmeur(string nom, int compteurProg);
+	Programmeur(string nom);
 	void afficher();
 	~Programmeur();
 };
