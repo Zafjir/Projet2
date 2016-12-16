@@ -42,7 +42,7 @@ int main()
 
 	cout << "Ajout d'une entreprise\n\n" << "Nom de l'entreprise : "; cin >> getNomEntreprise;
 	cout << "\nNumero de l'entreprise : "; cin >> getNumeroEntreprise;
-	cout << "\n\nAjout en cours ..." << endl;
+	cout << "\nAjout en cours ..." << endl;
 	Entreprise entre(getNomEntreprise, getNumeroEntreprise);
 	cout << "Ajout reussi." << endl;
 
@@ -50,7 +50,7 @@ int main()
 
 	cout << endl;
 	cout << "Ajout d'un patron dans l'entreprise\n\n" << "Nom du patron : "; cin >> getNomPatron;
-	cout << "\n\nAjout en cours ..." << endl;
+	cout << "\nAjout en cours ..." << endl;
 	Patron patr(getNomPatron);
 	cout << "Attribution du matricule ..." << endl;
 	cout << "Ajout reussi.\n" << endl;
@@ -61,25 +61,25 @@ int main()
 	{
 		clsTitre();
 		cout << "                        Gestion d'une entreprise de developpement\n\n" << endl;
-		cout << "                                          Menu\n\n" << endl;
-		cout << "1. Embaucher un chef de projet                 4. Ajouter un sound designer dans une equipe" << endl;
-		cout << "2. Ajouter un programmeur dans une equipe      5. Ajouter un game designer dans une equipe" << endl;
-		cout << "3. Ajouter un graphic designer dans une equipe 6. Ajouter un level designer dans une equipe" << endl;
+		cout << "\n\n                                          Menu\n\n" << endl;
+		cout << " 1. Embaucher un chef de projet                 4. Ajouter un sound designer dans une equipe" << endl;
+		cout << " 2. Ajouter un programmeur dans une equipe      5. Ajouter un game designer dans une equipe" << endl;
+		cout << " 3. Ajouter un graphic designer dans une equipe 6. Ajouter un level designer dans une equipe" << endl;
 
-		cout << "\n\n7. Enlever un chef de projet                   10. Enlever un sound designer d'une equipe" << endl;
-		cout << "8. Enlever un programmeur d'une equipe         11. Enlever un game designer d'une equipe" << endl;
-		cout << "9. Enlever un graphic designer d'une equipe    12. Enlever un level designer d'une equipe" << endl;
+		cout << "\n\n 7. Enlever un chef de projet                   10. Enlever un sound designer d'une equipe" << endl;
+		cout << " 8. Enlever un programmeur d'une equipe         11. Enlever un game designer d'une equipe" << endl;
+		cout << " 9. Enlever un graphic designer d'une equipe    12. Enlever un level designer d'une equipe" << endl;
 
-		cout << "\n\n13. Afficher le patron                         17. Afficher le / les graphic designer(s)" << endl;
-		cout << "14. Afficher le / les chef(s) de projet        18. Afficher le / les sound designer(s)" << endl;
-		cout << "15. Afficher le / les programmeur(s)           19. Afficher le / les game designer(s)" << endl;
-		cout << "16. Afficher le / les level designer(s)        20. Afficher une equipe" << endl;
+		cout << "\n\n 13. Afficher le patron                         17. Afficher le / les graphic designer(s)" << endl;
+		cout << " 14. Afficher le / les chef(s) de projet        18. Afficher le / les sound designer(s)" << endl;
+		cout << " 15. Afficher le / les programmeur(s)           19. Afficher le / les game designer(s)" << endl;
+		cout << " 16. Afficher le / les level designer(s)        20. Afficher une equipe" << endl;
 
-		cout << "\n\n21. Ajouter un secretaire                      23. Ajouter un technicien informatique" << endl;
-		cout << "22. Ajouter un technicien de surface           24. Afficher l'equipe de maintenance et le / les secretaire(s)" << endl;
+		cout << "\n\n 21. Ajouter un secretaire                      23. Ajouter un technicien informatique" << endl;
+		cout << " 22. Ajouter un technicien de surface           24. Afficher l'equipe de maintenance et le / les secretaire(s)" << endl;
 
-		cout << "\n\n25. Enlever un secretaire                      27. Enlever un techicien informatique" << endl;
-		cout << "26. Enlever un technicien de surface" << endl;
+		cout << "\n\n 25. Enlever un secretaire                      27. Enlever un techicien informatique" << endl;
+		cout << " 26. Enlever un technicien de surface" << endl;
 
 		cout << "\n\n28. Quitter\n\n" << endl;
 		cout << "Choix : "; cin >> choixmenu;
@@ -219,11 +219,13 @@ int main()
 
 		case 13 :
 			clsTitre();
+			cout << "Patron de l'entreprise : " << endl;
 			patr.afficher();
 			system("pause");
 			break;
 		case 14:
 			clsTitre();
+			cout << "Chef de projet de l'entreprise : " << endl;
 			patr.afficherChefDeProjet();
 			system("pause");
 			break;
